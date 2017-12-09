@@ -1,10 +1,17 @@
 package com.babysitter;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.jupiter.api.Assertions;
+import  org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import junit.framework.Assert;
+
+
+
+
+
 
 class BabySitterTest {
 
@@ -18,7 +25,8 @@ class BabySitterTest {
 	@Test
 
 	public void babySitterStartTimeReturnsNewStartTime() {
-		BabySitter babySitter = new BabySitter(18);
+		BabySitter babySitter = new BabySitter();
+		babySitter.setStartTime(18);
 
 		assertEquals(18, babySitter.getStartTime());
 
@@ -33,12 +41,18 @@ class BabySitterTest {
 	}
 	
 	@Test
-
-	public void babySitterEndTimeReturnsNewEndTime() {
+	public void babySitterEndTimeReturnsNewStartAndEndTime() {
 		BabySitter babySitter = new BabySitter(18 , 3);
 		assertEquals(18, babySitter.getStartTime());
 		assertEquals(3, babySitter.getEndTime());
-
+		
+	}
+	@Test()
+	public void babySitterInvalidStartTimeWithMessage() {
+		BabySitter babySitter = new BabySitter(18,3);
+		String InvalidString = "I can only babysit between 5pm and 4am.";
+		equals(InvalidString.equals(babySitter.getStartOrEndTimeErrorMessage()));
+		
 	}
 	
 }
