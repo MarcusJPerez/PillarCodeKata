@@ -1,16 +1,18 @@
 package com.babysitter;
 
 public class BabySitter {
-	
-	public int startTime;
 
-	public BabySitter(int startTime) {
-		this.startTime= startTime;
-	
-	}
+	public int startTime;
+	public int endTime;
 
 	public BabySitter() {
 		this.startTime = 17;
+		this.endTime = 4;
+	}
+
+	public BabySitter(int startTime) {
+		this.startTime = startTime;
+
 	}
 
 	public int getStartTime() {
@@ -21,9 +23,12 @@ public class BabySitter {
 		this.startTime = startTime;
 	}
 
-	
+	public int getEndTime() {
+		return endTime;
 	}
 
-	
+	public void setEndTime(int endTime) {
+		this.endTime = endTime;
+	}
 
-
+}

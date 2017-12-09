@@ -8,20 +8,27 @@ class BabySitterTest {
 
 	@Test
 	public void babySitterStartTimeReturns17() {
-		BabySitter  babySitter = new BabySitter();
-	
-		assertEquals(17, babySitter.getStartTime() );	
-			}
+		BabySitter babySitter = new BabySitter();
+
+		assertEquals(17, babySitter.getStartTime());
+	}
+
 	@Test
 
 	public void babySitterStartTimeReturnsValidStartTime() {
-		BabySitter  babySitter = new BabySitter(18);
-	
-		assertEquals(18, babySitter.getStartTime() );
-		
-	
-			}
+		BabySitter babySitter = new BabySitter(18);
 
+		assertEquals(18, babySitter.getStartTime());
+
+	}
+
+	@Test
+	
+	public void babySitterLatestEndTime() {
+		BabySitter babySitter = new BabySitter();
+		assertEquals(4 , babySitter.getEndTime());
+		
+	}
 
 
 }
