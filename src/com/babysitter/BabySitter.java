@@ -15,6 +15,12 @@ public class BabySitter {
 
 	}
 
+	public BabySitter(int startTime, int endTime) {
+		super();
+		this.startTime = startTime;
+		this.endTime = endTime;
+	}
+
 	public int getStartTime() {
 		return startTime;
 	}
@@ -30,5 +36,6 @@ public class BabySitter {
 	public void setEndTime(int endTime) {
 		this.endTime = endTime;
 	}
+
 
 }
