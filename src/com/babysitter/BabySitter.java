@@ -6,7 +6,8 @@ public class BabySitter {
 	public int endTime;
 	public int bedTime;
 	public int payRateStartToBedtime = 12;
-	
+	public int payRateBedTimeToMidnight = 8;
+
 	public String StartOrEndTimeErrorMessage;
 
 	public BabySitter() {
@@ -47,7 +48,7 @@ public class BabySitter {
 	}
 
 	public int getBedTime() {
-		return bedTime;
+		return bedTime; 
 	}
 
 	public void setBedTime(int bedTime) {
@@ -55,13 +56,12 @@ public class BabySitter {
 	}
 
 	public int calculatePayment() {
-		
-		
-		return payRateStartToBedtime * (bedTime - startTime)/(100);
-		
-		
-	}
 
-	
+		int totalPayment = (payRateStartToBedtime * (bedTime - startTime)
+				+ (payRateBedTimeToMidnight * (endTime - bedTime))) / 100;
+		
+		return totalPayment;
+
+	}
 
 }

@@ -60,12 +60,21 @@ class BabySitterTest {
 		
 	}
 	@Test()
-	public void PayRateFromStartToBedTime12$() {
+	public void PaymentFromStartToBedTime12$() {
+		BabySitter babySitter = new BabySitter();
+		babySitter.setStartTime(1700);
+		babySitter.setBedTime(2300);
+		babySitter.setEndTime(2300);
+		;
+		assertEquals( 72 , babySitter.calculatePayment());
+	}
+	@Test()
+	public void PaymentFromStartToBedTimeTillMidnight() {
 		BabySitter babySitter = new BabySitter();
 		babySitter.setStartTime(1700);
 		babySitter.setBedTime(2300);
 		babySitter.setEndTime(2400);
-		;
-		assertEquals( 72 , babySitter.calculatePayment());
+		assertEquals(80 , babySitter.calculatePayment());
+
 	}
 }
