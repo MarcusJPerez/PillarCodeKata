@@ -7,8 +7,11 @@ public class BabySitter {
 	public int bedTime;
 	public int payRateStartToBedtime = 12;
 	public int payRateBedTimeToMidnight = 8;
+	public int payRateMidnightToEnd = 16;
+	public int midnight = 2400;
+	public int militaryConversion = 100;
 
-	public String StartOrEndTimeErrorMessage;
+	public String StartOrEndTimeErrorMessage = null; 
 
 	public BabySitter() {
 		this.startTime = 1700;
@@ -17,14 +20,14 @@ public class BabySitter {
 	}
 
 	public BabySitter(int startTime, int endTime, int bedTime) {
-		getStartOrEndTimeErrorMessage();
+		
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.bedTime = bedTime;
 	}
 
 	public String getStartOrEndTimeErrorMessage() {
-		if (startTime < 1700 || startTime > 400 || endTime < 1700 || endTime > 400) {
+		if ((startTime < 1700 && startTime > 400) || (endTime < 1700 && endTime > 400)) {
 			StartOrEndTimeErrorMessage = "I can only babysit between 5pm and 4am.";
 		}
 		return StartOrEndTimeErrorMessage;
@@ -48,7 +51,7 @@ public class BabySitter {
 	}
 
 	public int getBedTime() {
-		return bedTime; 
+		return bedTime;
 	}
 
 	public void setBedTime(int bedTime) {
@@ -56,10 +59,15 @@ public class BabySitter {
 	}
 
 	public int calculatePayment() {
+		int totalPayment;
 
-		int totalPayment = (payRateStartToBedtime * (bedTime - startTime)
-				+ (payRateBedTimeToMidnight * (endTime - bedTime))) / 100;
-		
+		if (endTime > 400) {
+			totalPayment = (payRateStartToBedtime * ((bedTime - startTime)/ militaryConversion)
+					+ (payRateBedTimeToMidnight * ((endTime - bedTime)/ militaryConversion))) ;
+		} else
+			totalPayment = ((payRateStartToBedtime * ((bedTime - startTime)/ militaryConversion))
+					+ (payRateBedTimeToMidnight * ((midnight - bedTime)/ militaryConversion)) + ((endTime * payRateMidnightToEnd) /militaryConversion));
+
 		return totalPayment;
 
 	}
