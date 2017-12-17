@@ -6,7 +6,7 @@ import org.junit.Test;
 public class PaymentRatesTest {
 	BabySitter babySitterTest;
 	PaymentRates paymentRatesTest;
-	String InvalidString = "I can only babysit between 5pm and 4am.";
+	
 
 	@Before
 	public void beforeEach() {
@@ -14,38 +14,13 @@ public class PaymentRatesTest {
 		babySitterTest = new BabySitter();
 	}
 
-	@Test()
-	public void itCanDetermineThatAnInvalidStartTimeRerturnsTheInvalidMessage() {
-		babySitterTest.setStartTime(1600);
-		babySitterTest.setEndTime(400);
-		assertEquals(true,
-				InvalidString.equals(paymentRatesTest.determineIfStartAndEndTimesAreBothValid(babySitterTest)));
-	}
-	@Test()
-	public void itCanDetermineThatAnInvalidEndTimeRerturnsTheInvalidMessage() {
-		babySitterTest.setStartTime(170);
-		babySitterTest.setEndTime(500);
-		assertEquals(true,
-				InvalidString.equals(paymentRatesTest.determineIfStartAndEndTimesAreBothValid(babySitterTest)));
-	}
 
-	@Test()
-	public void itCanDetermineThatAVaildStartTimeDoesNotReturnTheInvalidTimeMessage() {
-		babySitterTest.setStartTime(1700);
-		assertEquals(false,
-				InvalidString.equals(paymentRatesTest.determineIfStartAndEndTimesAreBothValid(babySitterTest)));
-	}
-	@Test()
-	public void itCanDetermineThatAValidEndTimeDoesNotReturnTheInvalidTimeMessage() {
-		babySitterTest.setEndTime(400);
-		assertEquals(false,
-				InvalidString.equals(paymentRatesTest.determineIfStartAndEndTimesAreBothValid(babySitterTest)));
-	}
+	
 
 	@Test()
 	public void itCanCalculatePayGivenAStartTimeAndNoBedTimeAndAnEndTimeBeforeMidnight() {
-		babySitterTest.setStartTime(1700);		
-		babySitterTest.setEndTime(2300);		
+		babySitterTest.setStartTime(1700);
+		babySitterTest.setEndTime(2300);
 		assertEquals(72, paymentRatesTest.calculatePayment(babySitterTest));
 	}
 

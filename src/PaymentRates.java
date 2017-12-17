@@ -9,15 +9,7 @@ public class PaymentRates {
 	private final int PAY_RATE_MIDNIGHT_TO_END = 16;
 	private final int MIDNIGHT = 2400;
 	private final int MILITARY_CONVERSION = 100;
-	private String StartOrEndTimeErrorMessage = null;
-
-	public String determineIfStartAndEndTimesAreBothValid(BabySitter babySitter) {
-		if ((babySitter.getStartTime() < 1700 && babySitter.getStartTime() > 400)
-				|| (babySitter.getEndTime() < 1700 && babySitter.getEndTime() > 400)) {
-			StartOrEndTimeErrorMessage = "I can only babysit between 5pm and 4am.";
-		}
-		return StartOrEndTimeErrorMessage;
-	}
+	
 
 	public int calculatePayment(BabySitter babySitter) {
 		if (babySitter.getEndTime() > 400) {
