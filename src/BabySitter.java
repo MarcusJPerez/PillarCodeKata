@@ -6,9 +6,6 @@ public class BabySitter {
 	private int bedTime;
 
 	public BabySitter() {
-		this.startTime = 1700;
-		this.endTime = 400;
-		this.bedTime = 2400;
 
 	}
 

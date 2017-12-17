@@ -36,10 +36,16 @@ public class PaymentRates {
 	}
 
 	private int calculatePaymentForHoursWithAnEndTimeBeforeMidnight(BabySitter babySitter) {
-		return calculatePaymentFromStartToBedTime(babySitter)
+		if (babySitter.getBedTime() == 0) {
+			return (PAY_RATE_START_TO_BED_TIME
+					* ((babySitter.getEndTime() - babySitter.getStartTime()) / MILITARY_CONVERSION));
+		} else {
 
-				+ PAY_RATE_BEDTIME_TO_MIDNIGHT
-						* ((babySitter.getEndTime() - babySitter.getBedTime()) / MILITARY_CONVERSION);
+			return calculatePaymentFromStartToBedTime(babySitter)
+
+					+ PAY_RATE_BEDTIME_TO_MIDNIGHT
+							* ((babySitter.getEndTime() - babySitter.getBedTime()) / MILITARY_CONVERSION);
+		}
 	}
 
 	private int calculatePaymentFromStartToBedTime(BabySitter babySitter) {
