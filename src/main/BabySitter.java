@@ -1,4 +1,4 @@
-package src;
+package main;
 
 public class BabySitter {
 
@@ -9,14 +9,13 @@ public class BabySitter {
 	private final int LATEST_END_TIME = 400;
 	private String StartOrEndTimeErrorMessage = null;
 
-	public BabySitter() {
-
-	}
-	
-
 	public String determineIfStartAndEndTimesAreBothValid() {
-		if ((getStartTime() < EARLIEST_START_TIME && getStartTime() > LATEST_END_TIME)
-				|| (getEndTime() < EARLIEST_START_TIME && getEndTime() > LATEST_END_TIME)) {
+		boolean isStartTimeTooEarly = getStartTime() < EARLIEST_START_TIME;
+		boolean isStartTimeTooLate = getStartTime() > LATEST_END_TIME;
+		boolean isEndTimeTooEarly = getEndTime() < EARLIEST_START_TIME;
+		boolean isEndTimeTooLate = getEndTime() > LATEST_END_TIME;
+
+		if ((isStartTimeTooEarly && isStartTimeTooLate) || isEndTimeTooEarly && isEndTimeTooLate) {
 			StartOrEndTimeErrorMessage = "I can only babysit between 5pm and 4am.";
 		}
 		return StartOrEndTimeErrorMessage;

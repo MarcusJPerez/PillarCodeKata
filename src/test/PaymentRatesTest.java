@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import src.BabySitter;
-import src.PaymentRates;
+import main.BabySitter;
+import main.PaymentRates;
 
 public class PaymentRatesTest {
 	BabySitter babySitterTest;
@@ -17,9 +17,6 @@ public class PaymentRatesTest {
 		paymentRatesTest = new PaymentRates();
 		babySitterTest = new BabySitter();
 	}
-
-
-	
 
 	@Test()
 	public void itCanCalculatePayGivenAStartTimeAndNoBedTimeAndAnEndTimeBeforeMidnight() {
