@@ -2,6 +2,7 @@
 .classpath
 .project
 .settings/
+/WebContent
 
 # Intellij
 .idea/
